@@ -32,6 +32,7 @@ import { environment } from '../environments/environment';
     CapitalizePipe,
     AddToCartButtonComponent,
     ViewCartComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,12 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+// import { AppModule } from './app/app.module';
+import { AppModule } from './nested-routing-demo/app.module';
+
+// ng g c components/app-root
+
 
 if (environment.production) {
   enableProdMode();
