@@ -1,0 +1,14 @@
+    <div class="card">
+        <img [src]="product.picture" 
+        [routerLink]="['/details', product.id]"
+            class="card-img-top clickable" [alt]="product.description">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}
+                ({{ product.brand }})</p>
+            <p class="card-text">
+                {{ product.unit_price | currency : 'INR' }}
+            </p>
+            <epsln-add-to-cart-button [product]="product"></epsln-add-to-cart-button>
+        </div>
+    </div>

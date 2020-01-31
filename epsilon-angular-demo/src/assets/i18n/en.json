@@ -1,0 +1,16 @@
+{
+    "header": {
+        "title": "My Basket v1.2",
+        "login": "Login",
+        "register": "Register",
+        "hello_user": "Hello, ",
+        "logout": "Logout"
+    },
+    "sidebar": {
+        "all_products": "All products",
+        "products_by_category": "Products by category",
+        "products_by_brand": "Products by brnad",
+        "order_history": "Order history",
+        "view_profile": "View profile"
+    }
+}

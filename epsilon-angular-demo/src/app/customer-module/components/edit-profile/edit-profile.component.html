@@ -1,0 +1,86 @@
+<h3 class="text-center">Edit your profile</h3>
+<form [formGroup]="cf">
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">Name</label>
+        <div class="col-md-6">
+            <input type="text" formControlName="name" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">Email address</label>
+        <div class="col-md-6">
+            <input type="email" formControlName="email" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">Phone number</label>
+        <div class="col-md-6">
+            <input type="tel" formControlName="phone" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">House no/Apt name</label>
+        <div class="col-md-6">
+            <input type="text" formControlName="houseNo" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">Street</label>
+        <div class="col-md-6">
+            <input type="text" formControlName="street" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">Area/locality</label>
+        <div class="col-md-6">
+            <input type="text" formControlName="area" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">City</label>
+        <div class="col-md-6">
+            <input type="text" formControlName="city" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">State</label>
+        <div class="col-md-6">
+            <input type="text" formControlName="state" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">Country</label>
+        <div class="col-md-6">
+            <input type="text" formControlName="country" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right">Pincode</label>
+        <div class="col-md-6">
+            <input type="text" formControlName="pincode" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="" class="col-md-4 text-right"></label>
+        <div class="col-md-6">
+            <button class="btn" 
+                [ngClass]="{'btn-danger': cf.invalid, 'btn-primary': cf.valid}"
+                [disabled]="cf.invalid"
+                type="button"
+                (click)="updateChanges()" >Update changes</button>
+        </div>
+    </div>
+
+
+
+</form>

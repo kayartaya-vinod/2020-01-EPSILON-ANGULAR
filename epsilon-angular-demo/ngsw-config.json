@@ -1,0 +1,48 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "heroku-urls",
+      "cacheConfig": {
+        "maxAge": "3000s",
+        "maxSize": 20,
+        "strategy": "freshness",
+        "timeout": "30s"
+      },
+      "urls": [
+        "https://bootswatch.com/4/yeti/bootstrap.min.css",
+        "https://vinbasket.herokuapp.com/product-images/10000148_13-fresho-onion-medium.jpg",
+        "https://vinbasket.herokuapp.com/brands",
+        "https://vinbasket.herokuapp.com/categories",
+        "https://vinbasket.herokuapp.com/products"
+      ]
+    }
+  ]
+}

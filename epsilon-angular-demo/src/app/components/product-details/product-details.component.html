@@ -1,0 +1,38 @@
+<div style="padding-top: 200px;" *ngIf="!product">
+    <h3 class="text-center">Please wait, product being loaded...</h3>
+</div>
+
+<div class="row" *ngIf="product">
+    <div class="col">
+        <img [src]="product.picture" [alt]="product.description">
+    </div>
+    <div class="col">
+        <h3>{{ product.name }} </h3>
+        <!-- table.table>tbody>tr*6>td -->
+        <table class="table table-striped table-hover">
+            <tbody>
+                <tr>
+                    <td>{{ product.description }}</td>
+                </tr>
+                <tr>
+                    <td>{{ product.category | capitalize }}</td>
+                </tr>
+                <tr>
+                    <td>{{ product.brand }}</td>
+                </tr>
+                <tr>
+                    <td>{{ product.unit_price | currency : 'INR' }}</td>
+                </tr>
+                <tr>
+                    <td>{{ product.discount }}%</td>
+                </tr>
+                <tr>
+                    <td>{{ product.quantity_per_unit }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <epsln-add-to-cart-button [product]="product"></epsln-add-to-cart-button>
+
+    </div>
+</div>

@@ -1,0 +1,55 @@
+
+<div class="text-center">
+
+    <button class="btn btn-link">English</button> |
+    <button class="btn btn-link">Español</button> 
+
+
+</div>
+
+<br>
+
+<div  *ngIf="auth.isAuthenticated">
+    <h5>{{ auth.loggedInUser }} </h5>
+
+    <ul class="list-group">
+        <li class="list-group-item clickable"
+            routerLink="/customer/order-history">{{ "sidebar.order_history" | translate }}</li>
+        <li class="list-group-item clickable"
+            routerLink="/customer/view-profile">{{ "sidebar.view_profile" | translate }}</li>
+    </ul>
+</div>
+
+<button class="btn btn-primary btn-block" routerLink="/view-cart" *ngIf="cs.itemCount">
+    {{ "sidebar.view_cart" | translate }} ({{ cs.itemCount }} items)</button>
+
+<br>
+
+<ul class="list-group">
+    <li class="list-group-item clickable" 
+        routerLink="/list">
+        {{ "sidebar.all_products" | translate }}
+    </li>
+</ul>
+
+<br>
+
+<h5>{{ "sidebar.products_by_category" | translate }}</h5>
+<ul class="list-group">
+    <li class="list-group-item clickable" *ngFor="let c of categories" (click)="listByCategory(c)">
+        {{ c | capitalize }}
+    </li>
+</ul>
+
+<br>
+
+<h5>{{ "sidebar.products_by_brand" | translate }}</h5>
+
+<ul class="list-group">
+    <li class="list-group-item clickable" *ngFor="let b of brands" (click)="listByBrand(b)">
+        {{ b }}
+    </li>
+</ul>
+
+<br>
+

@@ -1,0 +1,23 @@
+<button class="btn btn-primary btn-block" 
+    *ngIf="!isInCart"
+    (click)="addToCart()">
+    Add to cart
+</button>
+
+<div class="row" *ngIf="isInCart">
+    <div class="col"></div>
+    <div class="col text-center">
+        <button (click)="decrement()" class="btn btn-danger btn-block">
+            -
+        </button>
+    </div>
+    <div class="col text-center">
+        {{ quantity }}
+    </div>
+    <div class="col text-center">
+        <button (click)="increment()" class="btn btn-success btn-block">
+            +
+        </button>
+    </div>
+    <div class="col"></div>
+</div>

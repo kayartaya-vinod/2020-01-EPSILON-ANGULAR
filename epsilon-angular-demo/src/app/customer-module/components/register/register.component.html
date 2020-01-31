@@ -1,0 +1,143 @@
+<h3 class="text-center text-primary">New users register here</h3>
+
+<!-- f1 is a reference to the entire form -->
+<form #f1="ngForm">
+
+    <!-- .form-group.row>(label.col-md-4)+(.col-md-8>input.form-control) -->
+    <div class="form-group row">
+        <label for="name" class="col-md-4 text-right">Name</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.name" 
+                autofocus
+                required
+                minlength="3"
+                #name="ngModel"
+                type="text" id="name" name="name" class="form-control">
+
+            <div class="text-danger" *ngIf="name.dirty && name.invalid">
+                <div *ngIf="name.errors.required">Name is mandatory</div>
+                <div *ngIf="name.errors.minlength">Minimum 3 letters required</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="email" class="col-md-4 text-right">Email address</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.email" 
+                #email="ngModel"
+                required
+                pattern="[^@]+@[^\.]+\..+"
+                type="email" id="email" name="email" class="form-control">
+        
+            <div class="text-danger" *ngIf="email.dirty && email.invalid">
+                <div *ngIf="email.errors.required">Email is mandatory</div>
+                <div *ngIf="email.errors.pattern">Invalid email pattern</div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="phone" class="col-md-4 text-right">Phone number</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.phone" type="tel" id="phone" name="phone" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="houseNo" class="col-md-4 text-right">House no/apt name</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.houseNo" type="text" id="houseNo" name="houseNo" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="street" class="col-md-4 text-right">Street</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.street" type="text" id="street" name="street" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="area" class="col-md-4 text-right">Area/locality</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.area" type="text" id="area" name="area" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="city" class="col-md-4 text-right">City</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.city" type="text" id="city" name="city" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="state" class="col-md-4 text-right">State</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.state" type="text" id="state" name="state" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="country" class="col-md-4 text-right">Country</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.country" type="text" id="country" name="country" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="pincode" class="col-md-4 text-right">Pincode</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.pincode" type="text" id="pincode" name="pincode" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="password" class="col-md-4 text-right">Password</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="cust.password" 
+                #pass="ngModel"
+                required
+                minlength="8"    
+                [type]="passwordTfType" id="password" name="password" class="form-control">
+
+            <div>
+                <label class="clickable">
+                    <input type="checkbox" 
+                    name="showPassword" [(ngModel)]="showPassword">
+                    Show password?
+                </label>
+            </div>
+            <div class="text-danger" *ngIf="pass.dirty && pass.invalid">
+                <div *ngIf="pass.errors.required">Password is mandatory</div>
+                <div *ngIf="pass.errors.minlength">Minimum of 8 characters needed</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="c_password" class="col-md-4 text-right">Confirm password</label>
+        <div class="col-md-6">
+            <input [(ngModel)]="c_password" 
+                [type]="passwordTfType" id="c_password" name="c_password" class="form-control">
+            <div class="text-danger" *ngIf="!passwordsMatch">
+                Passwords don't match!
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-md-4"></label>
+        <div class="col-md-6">
+            <button type="button" 
+                (click)="register()"
+                class="btn"
+                [disabled]="f1.invalid"
+                [ngClass]="{ 'btn-primary': f1.valid, 'btn-danger': f1.invalid }">Submit</button>
+        </div>
+    </div>
+
+</form>

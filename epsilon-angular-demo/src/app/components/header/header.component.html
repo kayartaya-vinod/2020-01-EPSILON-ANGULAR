@@ -1,0 +1,23 @@
+<!-- .alert.alert-primary>.container>h1{MyBasket} -->
+<div class="alert alert-primary">
+    <div class="row">
+        <div class="col">
+            <h1><span class="clickable" routerLink="/">
+                {{ "header.title" | translate }}
+            </span></h1>
+        </div>
+
+        <div class="col text-right" *ngIf="!auth.isAuthenticated">
+            <button class="btn btn-link" routerLink="/customer/login">{{ "header.login" | translate }}</button>
+            | 
+            <button class="btn btn-link" routerLink="/customer/register">{{ "header.register" | translate }}</button>
+        </div>
+        
+        <div class="col text-right" *ngIf="auth.isAuthenticated">
+            <button class="btn btn-link">{{ "header.hello" | translate }} {{ auth.loggedInUser }} </button>
+            | 
+            <button class="btn btn-link"
+                (click)="auth.logout()">{{ "header.logout" | translate }}</button>
+        </div>
+    </div>
+</div>

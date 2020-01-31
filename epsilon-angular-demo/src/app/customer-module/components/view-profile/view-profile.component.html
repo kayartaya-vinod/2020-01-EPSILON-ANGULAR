@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col"></div>
+    <div class="col-md-8">
+        <h3>Your profile</h3>
+
+        <table class="table">
+            <tr>
+                <td>Name</td>
+                <td>{{ customer.name }}</td>
+            </tr>
+            <tr>
+                <td>Email address</td>
+                <td>{{ customer.email }}</td>
+            </tr>
+            <tr>
+                <td>Phone number</td>
+                <td>{{ customer.phone }}</td>
+            </tr>
+            <tr>
+                <td>House No./ Apt name</td>
+                <td>{{ customer.houseNo }}</td>
+            </tr>
+            <tr>
+                <td>Street</td>
+                <td>{{ customer.street }}</td>
+            </tr>
+            <tr>
+                <td>Area/ Locality</td>
+                <td>{{ customer.area }}</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>{{ customer.city }}</td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>{{ customer.state }}</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>{{ customer.country }}</td>
+            </tr>
+            <tr>
+                <td>Pincode</td>
+                <td>{{ customer.pincode }}</td>
+            </tr>
+        </table>
+
+        <br>
+        <button class="btn btn-primary"
+            routerLink="/customer/edit-profile">Edit profile</button>
+    </div>
+    <div class="col"></div>
+</div>

@@ -1,0 +1,46 @@
+<h1>Your cart content:</h1>
+
+<!-- table.table.table-bordered.table-striped>thead>tr>th*6 -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sl no</th>
+            <th>Product</th>
+            <th>Unit price</th>
+            <th>Quantity</th>
+            <th>Discount</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let li of cs.cart; index as i">
+            <td>{{ i+1 }}</td>
+            <td>
+                <img class="img-small" 
+                    [src]="li.product.picture" 
+                    [alt]="li.product.description">
+                    
+                {{ li.product.description }}</td>
+            <td class="text-right">{{ li.product.unit_price | currency: 'INR' }}</td>
+            <td class="text-right">
+                <epsln-add-to-cart-button 
+                    (cartEmpty)="redirectToHome()"
+                    [product]="li.product">
+                </epsln-add-to-cart-button>
+            </td>
+            <td class="text-right">{{ li.product.discount }}%</td>
+            <td class="text-right">{{ (li.product.unit_price * li.quantity 
+                * (100-li.product.discount)/100) | currency: 'INR'}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="text-right" colspan="5">Total: </td>
+            <td class="text-right">{{ cs.itemTotal | currency: 'INR' }}</td>
+        </tr>
+    </tfoot>
+</table>
+
+<button class="btn btn-outline-danger"
+    (click)="emptyCart()">Empty cart</button>
+<button class="btn btn-primary" (click)="placeOrder()">Checkout</button>
