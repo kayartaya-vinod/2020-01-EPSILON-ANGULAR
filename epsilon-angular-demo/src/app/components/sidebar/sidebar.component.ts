@@ -3,6 +3,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { AuthService } from 'src/app/customer-module/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'epsln-sidebar',
@@ -17,7 +18,8 @@ export class SidebarComponent implements OnInit {
   constructor(private ps: ProductService,
     public auth: AuthService,
     private router: Router,
-    public cs: CartService) { }
+    public cs: CartService,
+    private ts: TranslateService) { }
 
   ngOnInit() {
     this.ps.categories.subscribe(data => this.categories = data);
@@ -30,6 +32,10 @@ export class SidebarComponent implements OnInit {
 
   listByBrand(brand) {
     this.router.navigate(['/list'], { queryParams: { brand } })
+  }
+
+  changeLang(lang = 'en') {
+    this.ts.use(lang);
   }
 
 }

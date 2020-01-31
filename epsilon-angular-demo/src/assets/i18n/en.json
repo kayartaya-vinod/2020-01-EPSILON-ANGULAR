@@ -9,8 +9,21 @@
     "sidebar": {
         "all_products": "All products",
         "products_by_category": "Products by category",
-        "products_by_brand": "Products by brnad",
+        "products_by_brand": "Products by brand",
         "order_history": "Order history",
         "view_profile": "View profile"
+    },
+    "customer": {
+        "login": {
+            "title": "Existing customers login here",
+            "email": "Email address",
+            "email_reqired_error": "Email is mandatory",
+            "email_pattern_error": "Invalid email pattern",
+            "password": "Password",
+            "password_required_error": "Password is mandatory",
+            "password_minlength_error": "Minimum of 8 characters needed",
+            "show_password": "Show password?",
+            "submit": "Submit"
+        }
     }
 }

@@ -1,8 +1,8 @@
-<h3 class="text-center text-primary">Existing customers login here</h3>
+<h3 class="text-center text-primary">{{ "customer.login.title" | translate}}</h3>
 
 <form #f1="ngForm" (submit)="login(f1)">
     <div class="form-group row">
-        <label for="email" class="col-md-4 text-right">Email address</label>
+        <label for="email" class="col-md-4 text-right">{{ "customer.login.email" | translate}}</label>
         <div class="col-md-6">
             <input [(ngModel)]="user.email" 
                 #email="ngModel"
@@ -11,15 +11,15 @@
                 type="email" id="email" name="email" class="form-control">
         
             <div class="text-danger" *ngIf="showErrors && email.invalid">
-                <div *ngIf="email.errors.required">Email is mandatory</div>
-                <div *ngIf="email.errors.pattern">Invalid email pattern</div>
+                <div *ngIf="email.errors.required">{{ "customer.login.email_reqired_error" | translate}}</div>
+                <div *ngIf="email.errors.pattern">{{ "customer.login.email_pattern_error" | translate}}</div>
             </div>
             
         </div>
     </div>
 
     <div class="form-group row">
-        <label for="password" class="col-md-4 text-right">Password</label>
+        <label for="password" class="col-md-4 text-right">{{ "customer.login.password" | translate}}</label>
         <div class="col-md-6">
             <input [(ngModel)]="user.password" 
                 #pass="ngModel"
@@ -31,12 +31,12 @@
                 <label class="clickable">
                     <input type="checkbox" 
                     name="showPassword" [(ngModel)]="showPassword">
-                    Show password?
+                    {{ "customer.login.show_password" | translate}}
                 </label>
             </div>
             <div class="text-danger" *ngIf="showErrors && pass.invalid">
-                <div *ngIf="pass.errors.required">Password is mandatory</div>
-                <div *ngIf="pass.errors.minlength">Minimum of 8 characters needed</div>
+                <div *ngIf="pass.errors.required">{{ "customer.login.password_required_error" | translate}}</div>
+                <div *ngIf="pass.errors.minlength">{{ "customer.login.password_minlength_error" | translate}}</div>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
         <label class="col-md-4"></label>
         <div class="col-md-6">
             <button 
-                class="btn btn-primary">Submit</button>
+                class="btn btn-primary">{{ "customer.login.submit" | translate}}</button>
         </div>
     </div>
 

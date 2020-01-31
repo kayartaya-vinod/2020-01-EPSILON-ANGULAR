@@ -9,8 +9,21 @@
     "sidebar": {
         "all_products": "Todos los productos",
         "products_by_category": "Productos por categoria",
-        "products_by_brnad": "Productos por marca",
+        "products_by_brand": "Productos por marca",
         "order_history": "Historial de pedidos",
         "view_profile": "Ver perfil"
+    },
+    "customer": {
+        "login": {
+            "title": "Los clientes existentes inician sesión aquí",
+            "email": "Dirección de correo electrónico",
+            "email_reqired_error": "El correo electrónico es obligatorio.",
+            "email_pattern_error": "Patrón de correo electrónico no válido",
+            "password": "Contraseña",
+            "password_required_error": "La contraseña es obligatoria",
+            "password_minlength_error": "Se necesitan un mínimo de 8 caracteres.",
+            "show_password": "¿Mostrar contraseña?",
+            "submit": "Enviar"
+        }
     }
 }

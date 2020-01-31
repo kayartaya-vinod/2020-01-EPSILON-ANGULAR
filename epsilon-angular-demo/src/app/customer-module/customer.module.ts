@@ -9,6 +9,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderTotalPipe } from './pipes/order-total.pipe';
 import { RouterModule, Routes } from '@angular/router';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
 const routeConfig: Routes = [
     {
@@ -60,9 +63,19 @@ const routeConfig: Routes = [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forChild(routeConfig)
+        RouterModule.forChild(routeConfig),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                deps: [HttpClient],
+                useFactory: (http: HttpClient) => new TranslateHttpLoader(http)
+            }
+        })
     ],
     providers: []
 })
 export class CustomerModule {
+    constructor(ts: TranslateService) {
+        ts.setDefaultLang('en');
+    }
 }
